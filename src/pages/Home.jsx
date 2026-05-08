@@ -1,20 +1,17 @@
 import { useNavigate } from 'react-router-dom'
 import { useData } from '../context/DataContext'
-import { useToast } from '../context/ToastContext'
 import { useTheme } from '../context/ThemeContext'
 import bagagiDarkCar from '../../ressources/bagagidarkcar.png'
 import bagagiLightCar from '../../ressources/bagagilightcar.png'
 import LuggageOutlinedIcon      from '@mui/icons-material/LuggageOutlined'
 import SchoolOutlinedIcon        from '@mui/icons-material/SchoolOutlined'
 import DirectionsCarOutlinedIcon from '@mui/icons-material/DirectionsCarOutlined'
-import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined'
 import RocketLaunchOutlinedIcon  from '@mui/icons-material/RocketLaunchOutlined'
 import DynIcon from '../components/DynIcon'
 
 export default function Home() {
   const data = useData()
   const navigate = useNavigate()
-  const { toast } = useToast()
   const { theme } = useTheme()
   const heroCarImage = theme === 'dark' ? bagagiDarkCar : bagagiLightCar
 
@@ -43,7 +40,7 @@ export default function Home() {
             <p style={{ fontSize: '0.95rem', color: 'var(--mid-grey)', marginBottom: 40 }}>
               Mets en relation les étudiants avec des conducteurs vérifiés. Prix flexibles selon la distance et le poids.
             </p>
-            <div className="flex gap-4" style={{ flexWrap: 'wrap', marginBottom: 60 }}>
+            <div className="flex gap-4" style={{ flexWrap: 'wrap' }}>
               <button className="btn btn-primary btn-lg" onClick={() => navigate('/student')}>
                 <SchoolOutlinedIcon style={{ fontSize: '1.2rem' }} /> J'envoie mon bagage
               </button>
@@ -51,19 +48,6 @@ export default function Home() {
                 <DirectionsCarOutlinedIcon style={{ fontSize: '1.2rem' }} /> Je suis conducteur
               </button>
             </div>
-
-              {/* Stats */}
-              <div style={{ display: 'flex', gap: 32, flexWrap: 'wrap' }}>
-                {data.STATS.map((s, i) => (
-                  <div key={s.label} style={{ display: 'flex', alignItems: 'center', gap: 32 }}>
-                    <div>
-                      <div style={{ fontFamily: 'var(--font-display)', fontWeight: 800, fontSize: '1.6rem', color: 'var(--text)' }}>{s.value}</div>
-                      <div style={{ fontSize: '0.82rem', color: 'var(--mid-grey)' }}>{s.label}</div>
-                    </div>
-                    {i < data.STATS.length - 1 && <div style={{ width: 1, height: 40, background: 'var(--stat-line)' }} />}
-                  </div>
-                ))}
-              </div>
             </div>
 
             <div style={{
