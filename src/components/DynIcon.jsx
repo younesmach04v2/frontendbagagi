@@ -10,6 +10,8 @@ import CardGiftcardOutlinedIcon   from '@mui/icons-material/CardGiftcardOutlined
 import EditNoteOutlinedIcon       from '@mui/icons-material/EditNoteOutlined'
 import DirectionsCarOutlinedIcon  from '@mui/icons-material/DirectionsCarOutlined'
 import CheckCircleOutlineIcon     from '@mui/icons-material/CheckCircleOutlined'
+import GroupsOutlinedIcon         from '@mui/icons-material/GroupsOutlined'
+import StarBorderOutlinedIcon     from '@mui/icons-material/StarBorderOutlined'
 
 const MAP = {
   backpack: BackpackOutlinedIcon,
@@ -24,6 +26,8 @@ const MAP = {
   edit:     EditNoteOutlinedIcon,
   car:      DirectionsCarOutlinedIcon,
   check:    CheckCircleOutlineIcon,
+  groups:   GroupsOutlinedIcon,
+  star:     StarBorderOutlinedIcon,
 }
 
 export default function DynIcon({ name, style }) {

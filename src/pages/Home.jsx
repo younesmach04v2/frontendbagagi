@@ -110,6 +110,99 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PACKS */}
+      {data.PACKS && data.PACK_PREMIUM_COMING && (
+        <section className="section">
+          <div className="container">
+            <div className="section-header text-center">
+              <div className="section-tag">Offres</div>
+              <h2>Nos packs</h2>
+              <p style={{ fontSize: '0.9rem', color: 'var(--mid-grey)', maxWidth: 560, margin: '12px auto 0' }}>
+                Tarifs indicatifs selon distance et disponibilité — les conducteurs affinent le prix sur la plateforme.
+              </p>
+            </div>
+
+            <div style={{ overflowX: 'auto', marginTop: 28, borderRadius: 'var(--radius-md)', border: '1px solid var(--border-subtle, rgba(255,255,255,0.08))' }}>
+              <table style={{ width: '100%', minWidth: 520, borderCollapse: 'collapse', fontSize: '0.92rem' }}>
+                <thead>
+                  <tr style={{ borderBottom: '1px solid var(--stat-line)', background: 'var(--surface-1)' }}>
+                    <th style={{ textAlign: 'left', padding: '14px 16px', fontWeight: 600 }}>Pack</th>
+                    <th style={{ textAlign: 'left', padding: '14px 16px', fontWeight: 600 }}>Contenu</th>
+                    <th style={{ textAlign: 'right', padding: '14px 16px', fontWeight: 600 }}>Prix</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.PACKS.map((p) => (
+                    <tr key={p.name} style={{ borderBottom: '1px solid var(--stat-line)' }}>
+                      <td style={{ padding: '16px', verticalAlign: 'middle' }}>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+                          <span style={{ color: p.accent || 'var(--emerald)', display: 'flex' }}>
+                            <DynIcon name={p.icon} style={{ fontSize: '1.75rem' }} />
+                          </span>
+                          <strong style={{ fontFamily: 'var(--font-display)' }}>{p.name}</strong>
+                        </div>
+                      </td>
+                      <td style={{ padding: '16px', color: 'var(--mid-grey)', verticalAlign: 'middle' }}>{p.content}</td>
+                      <td style={{ padding: '16px', textAlign: 'right', fontWeight: 600, whiteSpace: 'nowrap', verticalAlign: 'middle' }}>
+                        {p.price}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            <div
+              className="card pack-premium-soon"
+              style={{
+                marginTop: 24,
+                position: 'relative',
+                borderStyle: 'dashed',
+                opacity: 0.95,
+                background: 'var(--surface-1)',
+              }}
+            >
+              <span
+                style={{
+                  position: 'absolute',
+                  top: 14,
+                  right: 14,
+                  fontSize: '0.72rem',
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.06em',
+                  padding: '6px 10px',
+                  borderRadius: 999,
+                  background: 'rgba(230, 194, 0, 0.15)',
+                  color: '#e6c200',
+                  border: '1px solid rgba(230, 194, 0, 0.35)',
+                }}
+              >
+                Bientôt disponible
+              </span>
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: 14, paddingRight: 120, flexWrap: 'wrap' }}>
+                <span style={{ color: data.PACK_PREMIUM_COMING.accent || '#e6c200', display: 'flex' }}>
+                  <DynIcon name={data.PACK_PREMIUM_COMING.icon} style={{ fontSize: '2rem' }} />
+                </span>
+                <div>
+                  <h3 style={{ margin: '0 0 8px', fontSize: '1.15rem', fontFamily: 'var(--font-display)' }}>
+                    {data.PACK_PREMIUM_COMING.title}
+                  </h3>
+                  <p style={{ margin: '0 0 14px', fontSize: '0.9rem', fontStyle: 'italic', color: 'var(--text-muted)' }}>
+                    {data.PACK_PREMIUM_COMING.subtitle}
+                  </p>
+                  <ul style={{ margin: 0, paddingLeft: 20, fontSize: '0.88rem', color: 'var(--mid-grey)', lineHeight: 1.6 }}>
+                    {data.PACK_PREMIUM_COMING.bullets.map((b) => (
+                      <li key={b}>{b}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* FEATURES */}
       <section className="section">
         <div className="container">

@@ -179,6 +179,11 @@ a { text-decoration: none; color: inherit; }
   box-shadow: var(--shadow-md);
   transform: translateY(-3px);
 }
+.pack-premium-soon:hover {
+  transform: none;
+  border-color: var(--border-subtle);
+  box-shadow: none;
+}
 .card-white {
   background: var(--off-white);
   border-color: var(--light-grey);
